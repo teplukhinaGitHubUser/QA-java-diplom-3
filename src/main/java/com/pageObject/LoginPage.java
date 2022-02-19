@@ -36,9 +36,7 @@ public class LoginPage {
     public void clickToLoginButton() {
         loginButton.click();
     }
-    public boolean loginButtonIsDisplayed() {
-        return loginButton.should(Condition.visible).isDisplayed();
-    }
+
 
     public boolean isLoginButtonDisplayed(){
         return loginButton.isDisplayed();

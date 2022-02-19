@@ -20,12 +20,9 @@ public class MainPage {
     private SelenideElement saucesTab;
     @FindBy(how = How.XPATH, using = ".//span[text()='Начинки']")
     private SelenideElement mainTab;
-    @FindBy(how = How.XPATH, using = ".//h2[text()='Булки']")
-    private SelenideElement bunsHeader;
-    @FindBy(how = How.XPATH, using = ".//h2[text()='Соусы']")
-    private SelenideElement saucesHeader;
-    @FindBy(how = How.XPATH, using = ".//h2[text()='Начинки']")
-    private SelenideElement mainHeader;
+    @FindBy(how = How.XPATH, using = ".//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']/span")
+    private SelenideElement selectedTab;
+
 
     public void clickToAccountButton(){
         accountButton.click();
@@ -47,13 +44,8 @@ public class MainPage {
     public void clickToMain() {
         mainTab.click();
     }
-    public boolean isBunsHeaderVisible(){
-        return bunsHeader.is(Condition.visible);
-    }
-    public boolean isMainHeaderVisible(){
-        return mainHeader.is(Condition.visible);
-    }
-    public boolean isSaucesHeaderVisible(){
-        return saucesHeader.is(Condition.visible);
+
+    public String getSelectedTab(){
+        return selectedTab.getText();
     }
 }

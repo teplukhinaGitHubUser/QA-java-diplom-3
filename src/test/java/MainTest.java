@@ -18,16 +18,17 @@ public class MainTest extends BaseTest {
     @DisplayName("Переход к раздеру Булки")
     @Description("Проверяем, что раздел открылся")
     public void openBunsTab()  {
-        mainPage.clickToMain();
-        mainPage.clickToBuns();
-        Assertions.assertTrue(mainPage.isBunsHeaderVisible());
+        if(!mainPage.getSelectedTab().equals("Булки")) {
+            mainPage.clickToBuns();
+        }
+        Assertions.assertEquals("Булки",mainPage.getSelectedTab());
     }
     @Test
     @DisplayName("Переход к раздеру Начинки")
     @Description("Проверяем, что раздел открылся ")
     public void openMainTab()  {
         mainPage.clickToMain();
-        Assertions.assertTrue(mainPage.isMainHeaderVisible());
+        Assertions.assertEquals("Начинки",mainPage.getSelectedTab());
     }
 
     @Test
@@ -35,13 +36,7 @@ public class MainTest extends BaseTest {
     @Description("Проверяем, что раздел открылся")
     public void openSaucesTab()  {
         mainPage.clickToSauces();
-        Assertions.assertTrue(mainPage.isSaucesHeaderVisible());
+        Assertions.assertEquals("Соусы",mainPage.getSelectedTab());
     }
 
-    @AfterEach
-    public void tearDown(){
-        if(!mainPage.isBunsHeaderVisible()) {
-            mainPage.clickToBuns();
-        }
-    }
 }

@@ -68,7 +68,7 @@ public class AccountTest extends BaseTest {
     public void logout() {
         mainPage.clickToAccountButton();
         profilePage.clickToLogoutButton();
-        Assertions.assertTrue(loginPage.loginButtonIsDisplayed());
+        Assertions.assertTrue(loginPage.isLoginButtonDisplayed());
     }
 
     @AfterEach

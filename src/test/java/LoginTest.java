@@ -42,7 +42,7 @@ public class LoginTest extends BaseTest {
     @Test
     @DisplayName("Вход через кнопку Личный кабинет")
     @Description("Проверяем, что юзер залогинился")
-    public void loginByGoToAccountButton() throws InterruptedException {
+    public void loginByGoToAccountButton()  {
         mainPage.clickToGoToAccountButton();
         login(response.get("email"), response.get("password"));
         Assertions.assertTrue(mainPage.orderButtonIsVisible());
